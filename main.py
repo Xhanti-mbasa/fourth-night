@@ -77,11 +77,18 @@ def game_loop():
 
 def look_commend():
     print(f"You are currently at the {current}.")
+
     if Battle_Ground[current]:
-        print("You see:",", ".join(Battle_Ground[current]))
+        print("You see:", ", ".join(Battle_Ground[current]))
     else:
         print("There is nothing interesting here...")
-    # tell the players current location:   ...
+
+    if paths[current]:
+        print("Paths from here:", ", ".join(paths[current]))
+    else:
+        print("There are no clear paths from here.")
+
+
 
 def drop():
     # unwanted = []
@@ -105,7 +112,7 @@ def Move():
     dest = input("Whither dost thou disire to go").strip().title()
     if dest in paths[current]:
         current = dest
-        print(f"You journey to {current}.")
+        print(f"You journey sto {current}.")
         look_commend()
     else:
         print("knee you can't venture that way")
